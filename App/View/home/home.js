@@ -1,12 +1,15 @@
 'use strict';
 
 import React, { View, Image, Text } from 'react-native';
+import Dimensions from 'Dimensions';
+
+let { width, height } = Dimensions.get('window');
 
 import Nav from '../../Component/nav/nav';
 
 export default class Home extends React.Component{
     static defaultProps = {
-        component: [<View style={{width:320,height:568,backgroundColor:'red'}} />,<View style={{width:320,height:568,backgroundColor:'green'}} />,<View style={{width:320,height:568,backgroundColor:'yellow'}} />,<View style={{width:320,height:568,backgroundColor:'blue'}} />,<View style={{width:320,height:568,backgroundColor:'#893333'}} />],
+        component: [<View style={{width:width,height:height,backgroundColor:'red'}} />,<View style={{width:width,height:height,backgroundColor:'green'}} />,<View style={{width:width,height:height,backgroundColor:'yellow'}} />,<View style={{width:width,height:height,backgroundColor:'blue'}} />,<View style={{width:width,height:height,backgroundColor:'#893333'}} />],
         data: null,
     };
     // 构造
