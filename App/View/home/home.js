@@ -46,9 +46,7 @@ export default class Home extends React.Component{
     // 渲染
     render(){
         return (
-            <View>
-                <Nav component={this.props.component} data={this.state.data} />
-            </View>
+            <Nav component={this.props.component} data={this.state.data} />
         );
     }
 };

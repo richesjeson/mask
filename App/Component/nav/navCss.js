@@ -1,16 +1,13 @@
 'use strict';
 
 import React, { Platform } from 'react-native';
-import Dimensions from 'Dimensions';
 import PixelRatio from 'PixelRatio';
 
-let { width, height } = Dimensions.get('window');
 let PR = PixelRatio.get();
 
 export const styles = {
     wrap: {
-        width: width,
-        height: (Platform.OS=='ios'?height:height-25),
+        flex: 1,
         flexDirection: 'column'
     },
     view: {
@@ -18,7 +15,6 @@ export const styles = {
         overflow: 'hidden'
     },
     navbar: {
-        width: width,
         height: 44,
         backgroundColor: '#ddd',
         flexDirection: 'row',

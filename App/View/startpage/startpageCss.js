@@ -7,36 +7,20 @@ let { width, height } = Dimensions.get('window');
 
 export const styles = {
     wrap: {
-        width: width,
-        height: height,
+        flex:1,
         overflow: 'hidden'
     },
     main: {
-        width: width,
-        height: height,
+        flex:1,
         position: 'absolute',
         top: 0,
-        left: 0,
-        flex: 1,
-        flexDirection: 'column'
+        left: 0
     },
     image: {
+        flex: 1,
         width: width,
         height: height,
-        flex: 1,
-        position: 'absolute',
-        top: 0,
-        left: 0,
         opacity: 0
-    },
-    btnmain: {
-        width: width,
-        height: height,
-        flex: 1,
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        backfaceVisibility: 'hidden'
     },
     btn: {
         width: 50,
@@ -47,7 +31,7 @@ export const styles = {
         backgroundColor: 'rgba(0,0,0,0.2)',
         alignItems: 'center',
         justifyContent: 'center',
-        borderRadius: 10,
+        borderRadius: 10
     },
     btntxt: {
         color: '#fff',

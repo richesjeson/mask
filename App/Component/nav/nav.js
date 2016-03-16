@@ -9,9 +9,6 @@ export default class Nav extends React.Component {
         component: null,
         data: null
     };
-    /*static propTypes = {
-
-    };*/
     /*构造*/
     constructor(props) {
         super(props);
@@ -22,6 +19,7 @@ export default class Nav extends React.Component {
             currentComponent: props.current
         };
     }
+    /*点击切换页面*/
     selectComponent(index){
         if(this.state.currentComponent !== index){
             this.setState({
@@ -29,6 +27,7 @@ export default class Nav extends React.Component {
             });
         }
     }
+    /*渲染*/
     render(){
         return (
             <View style={styles.wrap}>
@@ -38,7 +37,7 @@ export default class Nav extends React.Component {
                 <View style={styles.navbar}>
                     {
                         this.state.data.map((value,key)=>
-                            <View style={styles.navli} key={key} onTouchStart={this.selectComponent.bind(this,key)}>
+                            <View style={styles.navli} key={key} onTouchEnd={this.selectComponent.bind(this,key)}>
                                 <Image style={styles.navliimage} source={key==this.state.currentComponent?value.suri:value.uri}/>
                                 <Text style={[styles.navlitxt,(key==this.state.currentComponent)&&styles.navlitxtcurrent]}>{value.txt}</Text>
                             </View>
