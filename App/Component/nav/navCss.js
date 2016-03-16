@@ -9,26 +9,17 @@ let PR = PixelRatio.get();
 
 export const styles = {
     wrap: {
-        height: height
+        width: width,
+        height: (Platform.OS=='ios'?height:height-25),
+        flexDirection: 'column'
     },
     view: {
-        height: height,
+        flex: 1,
         overflow: 'hidden'
-    },
-    viewli: {
-        width: width,
-        height: height,
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        backgroundColor: '#fff'
     },
     navbar: {
         width: width,
         height: 44,
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
         backgroundColor: '#ddd',
         flexDirection: 'row',
         borderTopColor: '#ccc',
