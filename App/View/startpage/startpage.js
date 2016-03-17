@@ -119,12 +119,11 @@ export default class Startpage extends React.Component {
     }
     /*渲染*/
     render(){
-        return (<Index />);
-        /*return (
+        return (
             <View style={styles.wrap}>
                 {this.state.homepage}
                 {this.renderStartPage()}
             </View>
-        );*/
+        );
     }
 };
