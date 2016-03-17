@@ -12,6 +12,8 @@ export default class Home extends React.Component {
             defaultCity: '上海'
         };
         this.setTransY = {};
+        this.bgopacity = {};
+        this.imgopacity = {};
     }
     onScroll(e){
         if(e.nativeEvent.contentOffset.y<0) {
@@ -22,6 +24,19 @@ export default class Home extends React.Component {
                     height: styles.swithbox.height+Math.abs(e.nativeEvent.contentOffset.y)
                 }
             })
+        }
+        if(e.nativeEvent.contentOffset.y){
+            const count = Math.abs(e.nativeEvent.contentOffset.y<=10?0:e.nativeEvent.contentOffset.y)/100;
+            this.bgopacity.setNativeProps({
+                style: {
+                    backgroundColor: 'rgba(255,102,0,'+count+')'
+                }
+            });
+            this.imgopacity.setNativeProps({
+               style: {
+                   opacity: (1-count)
+               }
+            });
         }
     }
     render() {
@@ -107,8 +122,8 @@ export default class Home extends React.Component {
                         </View>
                     </View>
                 </ScrollView>
-                <View style={styles.head}>
-                    <Image style={[styles.headimg,styles.resizeMode]} source={require('./img/top.png')} />
+                <View style={styles.head} ref={(e)=>this.bgopacity = e}>
+                    <Image ref={(e)=>this.imgopacity = e} style={[styles.headimg,styles.resizeMode]} source={require('./img/top.png')} />
                     <View style={styles.headContent}>
                         <View style={styles.seachbox}>
                             <View style={styles.seachadr}>
