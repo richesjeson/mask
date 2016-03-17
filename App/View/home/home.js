@@ -19,7 +19,7 @@ export default class Home extends React.Component {
                 style: {
                     transform:[{translateY:e.nativeEvent.contentOffset.y}],
                     marginBottom: e.nativeEvent.contentOffset.y,
-                    height: styles.swithbox.height+Math.abs(e.nativeEvent.contentOffset.y)*2
+                    height: styles.swithbox.height+Math.abs(e.nativeEvent.contentOffset.y)
                 }
             })
         }

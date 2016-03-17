@@ -24,6 +24,7 @@ export const styles = {
     },
     headimg: {
         width: width,
+        height: (Platform.OS=='ios'?64:44),
         flex: 1,
         position: 'absolute',
         top: 0,
