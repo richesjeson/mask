@@ -2,7 +2,9 @@
 
 import React, { Platform } from 'react-native';
 import PixelRatio from 'PixelRatio';
+import Dimensions from 'Dimensions';
 
+let { width, height } = Dimensions.get('window');
 let PR = PixelRatio.get();
 
 export const styles = {
@@ -12,27 +14,31 @@ export const styles = {
     },
     view: {
         flex: 1,
-        overflow: 'hidden'
+        overflow: 'hidden',
+        flexDirection: 'row'
+    },
+    viewli: {
+        width: width
     },
     navbar: {
-        height: 44,
-        backgroundColor: '#ddd',
+        height: 42,
+        backgroundColor: '#fff',
         flexDirection: 'row',
-        borderTopColor: '#ccc',
+        borderTopColor: '#b2b2b2',
         borderTopWidth: 1/PR
     },
     navli: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'flex-end'
     },
     navlitxt: {
-        color: '#333',
-        fontSize: 10,
-        marginTop: 5
+        color: '#666',
+        fontSize: 12,
+        marginTop: 3
     },
     navlitxtcurrent: {
-        color: '#873663'
+        color: '#ff6600'
     },
     navliimage: {
         width: 20,

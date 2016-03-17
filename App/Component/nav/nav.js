@@ -32,7 +32,11 @@ export default class Nav extends React.Component {
         return (
             <View style={styles.wrap}>
                 <View style={styles.view}>
-                    {this.state.component[this.state.currentComponent]}
+                    {
+                        this.state.component.map((value,key)=>
+                            <View style={[styles.viewli,(key==this.state.currentComponent)&&{left:-this.state.currentComponent*styles.viewli.width}]} key={key}>{value}</View>
+                        )
+                    }
                 </View>
                 <View style={styles.navbar}>
                     {

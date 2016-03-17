@@ -3,7 +3,7 @@
 import React, { View, Text, Image, Platform, StatusBarIOS } from 'react-native';
 import Animatable from 'react-native-animatable';
 import { styles } from './startpageCss';
-import Home from '../home/home';
+import Index from '../index/index';
 
 export default class Startpage extends React.Component {
     constructor(props){
@@ -100,7 +100,7 @@ export default class Startpage extends React.Component {
             },1000
         );
         return (
-            <Home />
+            <Index />
         );
     }
     /*开始广告页*/
@@ -119,11 +119,12 @@ export default class Startpage extends React.Component {
     }
     /*渲染*/
     render(){
-        return (
+        return (<Index />);
+        /*return (
             <View style={styles.wrap}>
                 {this.state.homepage}
                 {this.renderStartPage()}
             </View>
-        );
+        );*/
     }
 };
