@@ -3,19 +3,42 @@
 import React, { View, Image, Text } from 'react-native';
 import { styles } from './navCss';
 
+import Home from '../../View/home/home';
+import NewHouse from '../../View/newhouse/newhouse';
+import OldHouse from '../../View/oldhouse/oldhouse';
+import Mine from '../../View/mine/mine';
+
 export default class Nav extends React.Component {
     static defaultProps = {
-        current: 0,
-        component: null,
-        data: null
+        current: 0
     };
     /*构造*/
     constructor(props) {
         super(props);
         /*初始状态*/
         this.state = {
-            component: props.component,
-            data: props.data,
+            data: [
+                {
+                    txt: '首页',
+                    uri: require('./img/tab1_1.png'),
+                    suri: require('./img/tab1_2.png')
+                },
+                {
+                    txt: '新房',
+                    uri: require('./img/tab2_1.png'),
+                    suri: require('./img/tab2_2.png')
+                },
+                {
+                    txt: '二手房',
+                    uri: require('./img/tab3_2.png'),
+                    suri: require('./img/tab3_1.png')
+                },
+                {
+                    txt: '我的',
+                    uri: require('./img/tab4_2.png'),
+                    suri: require('./img/tab4_1.png')
+                }
+            ],
             currentComponent: props.current
         };
     }
@@ -27,14 +50,27 @@ export default class Nav extends React.Component {
             });
         }
     }
+    /*对外提供切换页面方法*/
+    selectfn(index){
+        this.setState({
+            currentComponent: index
+        });
+    }
     /*渲染*/
     render(){
         return (
             <View style={styles.wrap}>
                 <View style={styles.view}>
                     {
-                        this.state.component.map((value,key)=>
-                            <View style={[styles.viewli,(key==this.state.currentComponent)&&{left:-this.state.currentComponent*styles.viewli.width}]} key={key}>{value}</View>
+                        [
+                            <Home selectComponent={this.selectfn.bind(this)} />,
+                            <NewHouse selectComponent={this.selectfn.bind(this)} />,
+                            <OldHouse selectComponent={this.selectfn.bind(this)} />,
+                            <Mine selectComponent={this.selectfn.bind(this)} />
+                        ].map((value,key)=>
+                            <View style={[styles.viewli,(key==this.state.currentComponent)&&{left:-this.state.currentComponent*styles.viewli.width}]} key={key}>
+                                {value}
+                            </View>
                         )
                     }
                 </View>
